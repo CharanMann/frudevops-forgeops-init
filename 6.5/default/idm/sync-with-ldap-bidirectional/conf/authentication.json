@@ -3,10 +3,11 @@
         "sessionModule" : {
             "name" : "JWT_SESSION",
             "properties" : {
-                "maxTokenLifeMinutes" : 120,
-                "tokenIdleTimeMinutes" : 30,
                 "sessionOnly" : true,
-                "isHttpOnly" : true
+                "isHttpOnly" : true,
+                "enableDynamicRoles" : false,
+                "maxTokenLifeMinutes" : "1200",
+                "tokenIdleTimeMinutes" : "300"
             }
         },
         "authModules" : [
