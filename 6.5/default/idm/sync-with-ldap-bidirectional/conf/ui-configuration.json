@@ -24,6 +24,7 @@
             }
         },
         "defaultNotificationType" : "info",
-        "kbaEnabled" : false
+        "kbaEnabled" : false,
+        "logoutUrl" : ""
     }
 }
