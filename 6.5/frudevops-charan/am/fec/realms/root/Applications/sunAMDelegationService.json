@@ -9,21 +9,21 @@
   "data" : {
     "_id" : "sunAMDelegationService",
     "displayName" : "Delegation Policy Set",
-    "resourceTypeUuids" : [ "20a13582-1f32-4f83-905f-f71ff4e2e00d" ],
     "description" : null,
     "attributeNames" : [ ],
+    "createdBy" : "id=dsameuser,ou=user,ou=am-config",
     "saveIndex" : null,
     "searchIndex" : null,
     "resourceComparator" : null,
     "applicationType" : "sunAMDelegationService",
     "entitlementCombiner" : "DenyOverride",
     "subjects" : [ "NOT", "OR", "AuthenticatedUsers", "AND", "Identity" ],
-    "createdBy" : "id=dsameuser,ou=user,ou=am-config",
-    "lastModifiedBy" : "id=dsameuser,ou=user,ou=am-config",
+    "resourceTypeUuids" : [ "20a13582-1f32-4f83-905f-f71ff4e2e00d" ],
+    "lastModifiedBy" : "id=amadmin,ou=user,ou=am-config",
     "creationDate" : 1561060527813,
-    "lastModifiedDate" : 1561060527813,
-    "conditions" : [ ],
+    "lastModifiedDate" : 1561063459218,
     "editable" : true,
+    "conditions" : [ ],
     "name" : "sunAMDelegationService"
   }
 }

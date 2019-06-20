@@ -20,6 +20,7 @@
     "com.iplanet.am.jssproxy.trustAllServerCerts" : true,
     "com.sun.identity.url.readTimeout" : "30000",
     "com.iplanet.am.console.remote" : false,
+    "com.sun.identity.server.fqdnMap[subscribers.frudevops-charan.example.com]" : "subscribers.frudevops-charan.example.com",
     "openam.forbidden.to.copy.headers" : "connection",
     "com.iplanet.am.lbcookie.value" : "00",
     "com.sun.identity.plugin.log.class" : "@LOG_PROVIDER_CLASS@",

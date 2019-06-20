@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "Authentication",
     "entityId" : "Authentication",
     "pathParams" : { }
@@ -34,17 +34,18 @@
       "moduleBasedAuthEnabled" : true,
       "zeroPageLoginAllowedWithoutReferrer" : true,
       "sharedSecret" : null,
+      "sharedSecret-encrypted" : "AAAAA0FFUwIQkF/QDhFhWah3guZ2Qs/jea9w8EXY+ehka0fehkfSu6dAxDJafj4dIODI7u1l9j9MwG9KYeHD1Hml4NmhRT4JeT6Qnh4m7gAf",
       "keyAlias" : "test",
       "zeroPageLoginEnabled" : false,
       "zeroPageLoginReferrerWhiteList" : [ ]
     },
     "postauthprocess" : {
       "usernameGeneratorClass" : "com.sun.identity.authentication.spi.DefaultUserIDGenerator",
-      "loginFailureUrl" : [ "" ],
+      "loginFailureUrl" : [ ],
       "userAttributeSessionMapping" : [ ],
       "loginPostProcessClass" : [ ],
       "usernameGeneratorEnabled" : true,
-      "loginSuccessUrl" : [ "/am/console" ]
+      "loginSuccessUrl" : [ "/console" ]
     },
     "core" : {
       "orgConfig" : "ldapService",
