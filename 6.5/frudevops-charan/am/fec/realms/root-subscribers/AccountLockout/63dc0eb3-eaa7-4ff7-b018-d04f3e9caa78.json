@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "AccountLockout",
     "entityId" : "63dc0eb3-eaa7-4ff7-b018-d04f3e9caa78",
     "pathParams" : { }

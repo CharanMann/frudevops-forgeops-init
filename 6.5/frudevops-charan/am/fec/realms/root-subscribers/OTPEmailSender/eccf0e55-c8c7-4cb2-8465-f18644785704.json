@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "OTPEmailSender",
     "entityId" : "eccf0e55-c8c7-4cb2-8465-f18644785704",
     "pathParams" : { }

@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "SocialGoogle",
     "entityId" : "b0fbc327-67cf-4c18-a92c-937c7c2421cd",
     "pathParams" : { }

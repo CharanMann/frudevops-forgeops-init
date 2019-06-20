@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "UsernameCollector",
     "entityId" : "24acfc56-4470-47ec-82ee-eb3c98c4689a",
     "pathParams" : { }

@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "Policies",
     "entityId" : "FEC_Resource_Server - o.user.0 - 9abda5d4-06ab-43e1-8f67-2dbb86155efe0--687015443",
     "pathParams" : { }

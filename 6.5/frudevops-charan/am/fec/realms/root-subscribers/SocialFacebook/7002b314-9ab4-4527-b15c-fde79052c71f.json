@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "SocialFacebook",
     "entityId" : "7002b314-9ab4-4527-b15c-fde79052c71f",
     "pathParams" : { }

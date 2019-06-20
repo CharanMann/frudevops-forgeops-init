@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "ProvisionDynamicAccount",
     "entityId" : "7a797879-ea91-442a-a1ba-397dd5bf14b0",
     "pathParams" : { }

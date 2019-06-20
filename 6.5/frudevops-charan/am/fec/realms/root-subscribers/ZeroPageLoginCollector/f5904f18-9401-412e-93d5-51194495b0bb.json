@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "ZeroPageLoginCollector",
     "entityId" : "f5904f18-9401-412e-93d5-51194495b0bb",
     "pathParams" : { }

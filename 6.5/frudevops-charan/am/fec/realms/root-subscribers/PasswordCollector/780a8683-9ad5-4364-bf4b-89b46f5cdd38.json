@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "PasswordCollector",
     "entityId" : "780a8683-9ad5-4364-bf4b-89b46f5cdd38",
     "pathParams" : { }

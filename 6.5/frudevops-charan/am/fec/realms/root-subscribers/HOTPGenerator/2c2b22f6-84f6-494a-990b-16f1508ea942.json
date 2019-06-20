@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "HOTPGenerator",
     "entityId" : "2c2b22f6-84f6-494a-990b-16f1508ea942",
     "pathParams" : { }

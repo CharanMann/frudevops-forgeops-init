@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/subscribers",
-    "amsterVersion" : "6.5.0",
+    "amsterVersion" : "6.5.1",
     "entityType" : "PersistentCookieDecision",
     "entityId" : "4a9e2829-a017-43bb-bfc3-feaa6d561f66",
     "pathParams" : { }
