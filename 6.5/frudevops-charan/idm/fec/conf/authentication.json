@@ -3,15 +3,11 @@
         "sessionModule" : {
             "name" : "JWT_SESSION",
             "properties" : {
-                "keyAlias" : "&{openidm.https.keystore.cert.alias}",
-                "privateKeyPassword" : "&{openidm.keystore.password}",
-                "keystoreType" : "&{openidm.keystore.type}",
-                "keystoreFile" : "&{openidm.keystore.location}",
-                "keystorePassword" : "&{openidm.keystore.password}",
                 "sessionOnly" : true,
                 "isHttpOnly" : true,
-                "maxTokenLifeSeconds" : "5",
-                "tokenIdleTimeSeconds" : "5"
+                "enableDynamicRoles" : false,
+                "maxTokenLifeMinutes" : "1200",
+                "tokenIdleTimeMinutes" : "300"
             }
         },
         "authModules" : [
@@ -22,7 +18,7 @@
                     "username" : "anonymous",
                     "password" : "anonymous",
                     "defaultUserRoles" : [
-                        "openidm-reg"
+                        "internal/role/openidm-reg"
                     ]
                 },
                 "enabled" : true
@@ -53,28 +49,35 @@
                     "propertyMapping" : {
                         "authenticationId" : "username",
                         "userCredential" : "password",
-                        "userRoles" : "roles"
+                        "userRoles" : "authzRoles"
                     },
                     "defaultUserRoles" : [ ]
                 },
                 "enabled" : true
             },
             {
-                "name" : "CLIENT_CERT",
+                "name" : "PASSTHROUGH",
                 "properties" : {
-                    "queryOnResource" : "managed/user",
+                    "augmentSecurityContext" : {
+                        "type" : "text/javascript",
+                        "file" : "auth/populateAsManagedUser.js"
+                    },
+                    "queryOnResource" : "system/ldap/account",
+                    "propertyMapping" : {
+                        "authenticationId" : "uid"
+                    },
+                    "managedUserLink" : "systemLdapAccounts_managedUser",
                     "defaultUserRoles" : [
-                        "openidm-cert"
-                    ],
-                    "allowedAuthenticationIdPatterns" : [ ]
+                        "internal/role/openidm-authorized"
+                    ]
                 },
-                "enabled" : false
+                "enabled" : true
             },
             {
                 "name" : "SOCIAL_PROVIDERS",
                 "properties" : {
                     "defaultUserRoles" : [
-                        "openidm-authorized"
+                        "internal/role/openidm-authorized"
                     ],
                     "augmentSecurityContext" : {
                         "type" : "text/javascript",
@@ -94,7 +97,7 @@
                     "username" : "&{openidm.prometheus.username}",
                     "password" : "&{openidm.prometheus.password}",
                     "defaultUserRoles" : [
-                        "&{openidm.prometheus.role}"
+                        "internal/role/openidm-prometheus"
                     ]
                 },
                 "enabled" : true
