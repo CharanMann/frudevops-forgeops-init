@@ -16,7 +16,21 @@
                 "properties" : {
                     "queryOnResource" : "internal/user",
                     "username" : "anonymous",
-                    "password" : "anonymous",
+                    "password" : {
+                        "$crypto" : {
+                            "type" : "x-simple-encryption",
+                            "value" : {
+                                "cipher" : "AES/CBC/PKCS5Padding",
+                                "stableId" : "openidm-sym-default",
+                                "salt" : "g/4SebCp0sgziYXAogiyUQ==",
+                                "data" : "Hjg81jEBQDyK7j9eLeVrhA==",
+                                "keySize" : 16,
+                                "purpose" : "idm.config.encryption",
+                                "iv" : "62G0UpSygrc1cUSf60cPyw==",
+                                "mac" : "+fo4qVDKzPLeJeOxI078/g=="
+                            }
+                        }
+                    },
                     "defaultUserRoles" : [
                         "internal/role/openidm-reg"
                     ]
@@ -127,7 +141,21 @@
                         ],
                         "authenticationIdKey" : "sub",
                         "clientId" : "openidm",
-                        "clientSecret" : "openidm",
+                        "clientSecret" : {
+                            "$crypto" : {
+                                "type" : "x-simple-encryption",
+                                "value" : {
+                                    "cipher" : "AES/CBC/PKCS5Padding",
+                                    "stableId" : "openidm-sym-default",
+                                    "salt" : "ytAHPrUQC5iX+jNmXJAZKg==",
+                                    "data" : "oUdoONgModIlWS5gcywYZQ==",
+                                    "keySize" : 16,
+                                    "purpose" : "idm.config.encryption",
+                                    "iv" : "IVE6YZsytwbDi9+aFbBdmQ==",
+                                    "mac" : "bGogU9uO9viBa9/I+Uswhg=="
+                                }
+                            }
+                        },
                         "authorizationEndpoint" : "https://login.frudevops-charan.example.com/oauth2/realms/root/realms/subscribers/authorize",
                         "tokenEndpoint" : "https://login.frudevops-charan.example.com/oauth2/realms/root/realms/subscribers/access_token",
                         "endSessionEndpoint" : "https://login.frudevops-charan.example.com/oauth2/realms/root/realms/subscribers/connect/endSession",
