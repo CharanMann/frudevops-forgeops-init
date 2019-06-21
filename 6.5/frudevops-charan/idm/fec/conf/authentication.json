@@ -139,7 +139,7 @@
                     },
                     "queryOnResource" : "system/subscribersLDAP/account"
                 },
-                "enabled" : true
+                "enabled" : false
             }
         ]
     }
