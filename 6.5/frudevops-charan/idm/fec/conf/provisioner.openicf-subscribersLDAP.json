@@ -11,7 +11,7 @@
         "principal" : "cn=Directory Manager",
         "credentials" : "&{userstore.password}",
         "baseContexts" : [
-            "ou=subscribers,&{userstore.basecontext}"
+            "ou=subscribers,ou=People,ou=subscribers,dc=example,dc=com"
         ],
         "accountSearchFilter" : "",
         "accountSynchronizationFilter" : null,
@@ -54,7 +54,7 @@
         "maintainLdapGroupMembership" : false,
         "respectResourcePasswordPolicyChangeAfterReset" : false,
         "baseContextsToSynchronize" : [
-            "ou=subscribers,&{userstore.basecontext}"
+            "ou=subscribers,ou=People,ou=subscribers,dc=example,dc=com"
         ]
     },
     "resultsHandlerConfig" : {
