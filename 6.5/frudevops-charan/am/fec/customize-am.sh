@@ -14,6 +14,6 @@ echo ""
 
 # Copy the web.xml file that is in the same directory as this script to the
 # webapps/openam/WEB-INF directory
-cp /git/config/${CONFIG_PATH}/web.xml ${CATALINA_HOME}/webapps/openam/WEB-INF
+cp /git/config/${CONFIG_PATH}/web.xml ${CATALINA_HOME}/webapps/ROOT/WEB-INF
 
 echo "Finished customizing the AM web application"
