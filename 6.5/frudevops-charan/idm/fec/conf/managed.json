@@ -4,19 +4,15 @@
             "name" : "user",
             "onCreate" : {
                 "type" : "text/javascript",
-                "source" : "require('onCreateUser').setDefaultFields(object);require('roles/conditionalRoles').createConditionalGrantsForUser(object, 'roles');require('onCreateUser').emailUser(object);"
+                "source" : "require('onCreateUser').setDefaultFields(object);require('onCreateUser').emailUser(object);"
             },
             "onUpdate" : {
                 "type" : "text/javascript",
-                "source" : "require('onUpdateUser').preserveLastSync(object, oldObject, request);require('roles/conditionalRoles').updateConditionalGrantsForUser(object, 'roles');require('onUpdateUser').createNotification(object, oldObject);"
-            },
-            "onDelete" : {
-                "type" : "text/javascript",
-                "file" : "onDelete-user-cleanup.js"
+                "source" : "require('onUpdateUser').preserveLastSync(object, oldObject, request);"
             },
             "postDelete" : {
                 "type" : "text/javascript",
-                "source" : "require('postDelete-idp-cleanup').removeConnectedIdpData(oldObject, resourceName, request);"
+                "source" : "require('postDelete-idp-cleanup').removeConnectedIdpData(oldObject, resourceName, request);require('postDelete-notification-cleanup').removeConnectedNotificationData(oldObject, resourceName, request);"
             },
             "schema" : {
                 "$schema" : "http://forgerock.org/json-schema#",
