@@ -191,6 +191,109 @@
                     "situation" : "ABSENT"
                 }
             ]
+        },
+        {
+            "target" : "managed/user",
+            "source" : "system/subscribersLDAP/account",
+            "name" : "systemSubscribersldapAccount_managedUser",
+            "icon" : null,
+            "displayName" : "systemSubscribersldapAccount_managedUser",
+            "properties" : [
+                {
+                    "target" : "userName",
+                    "source" : "uid"
+                },
+                {
+                    "target" : "givenName",
+                    "source" : "givenName"
+                },
+                {
+                    "target" : "sn",
+                    "source" : "sn"
+                },
+                {
+                    "target" : "mail",
+                    "source" : "mail"
+                },
+                {
+                    "target" : "description",
+                    "source" : "description"
+                },
+                {
+                    "target" : "telephoneNumber",
+                    "source" : "telephoneNumber"
+                },
+                {
+                    "target" : "subscriptionType",
+                    "source" : "subscriptionType"
+                },
+                {
+                    "target" : "subscribersFavMovie",
+                    "source" : "subscribersFavMovie"
+                },
+                {
+                    "target" : "subscriptionType",
+                    "source" : "subscriptionType"
+                },
+                {
+                    "target" : "subscribersAge",
+                    "source" : "subscribersAge"
+                }
+            ],
+            "policies" : [
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "AMBIGUOUS"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "SOURCE_MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "MISSING"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "FOUND_ALREADY_LINKED"
+                },
+                {
+                    "action" : "DELETE",
+                    "situation" : "UNQUALIFIED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "UNASSIGNED"
+                },
+                {
+                    "action" : "EXCEPTION",
+                    "situation" : "LINK_ONLY"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "TARGET_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "SOURCE_IGNORED"
+                },
+                {
+                    "action" : "IGNORE",
+                    "situation" : "ALL_GONE"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "CONFIRMED"
+                },
+                {
+                    "action" : "UPDATE",
+                    "situation" : "FOUND"
+                },
+                {
+                    "action" : "CREATE",
+                    "situation" : "ABSENT"
+                }
+            ]
         }
     ]
 }
