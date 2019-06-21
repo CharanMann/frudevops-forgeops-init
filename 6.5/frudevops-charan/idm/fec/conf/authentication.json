@@ -3,11 +3,15 @@
         "sessionModule" : {
             "name" : "JWT_SESSION",
             "properties" : {
+                "keyAlias" : "&{openidm.https.keystore.cert.alias}",
+                "privateKeyPassword" : "&{openidm.keystore.password}",
+                "keystoreType" : "&{openidm.keystore.type}",
+                "keystoreFile" : "&{openidm.keystore.location}",
+                "keystorePassword" : "&{openidm.keystore.password}",
                 "sessionOnly" : true,
                 "isHttpOnly" : true,
-                "enableDynamicRoles" : false,
-                "maxTokenLifeMinutes" : "1200",
-                "tokenIdleTimeMinutes" : "300"
+                "maxTokenLifeSeconds" : "5",
+                "tokenIdleTimeSeconds" : "5"
             }
         },
         "authModules" : [
@@ -16,23 +20,9 @@
                 "properties" : {
                     "queryOnResource" : "internal/user",
                     "username" : "anonymous",
-                    "password" : {
-                        "$crypto" : {
-                            "type" : "x-simple-encryption",
-                            "value" : {
-                                "cipher" : "AES/CBC/PKCS5Padding",
-                                "stableId" : "openidm-sym-default",
-                                "salt" : "4HPk+ZM17P4Us4NdsikiLQ==",
-                                "data" : "4QhqIlEQ/D49xIhECVg59w==",
-                                "keySize" : 16,
-                                "purpose" : "idm.config.encryption",
-                                "iv" : "MqZpKE92/PfmiQdaqsQDoA==",
-                                "mac" : "Filo+rktoUJwnq3M/aqddw=="
-                            }
-                        }
-                    },
+                    "password" : "anonymous",
                     "defaultUserRoles" : [
-                        "internal/role/openidm-reg"
+                        "openidm-reg"
                     ]
                 },
                 "enabled" : true
@@ -63,35 +53,28 @@
                     "propertyMapping" : {
                         "authenticationId" : "username",
                         "userCredential" : "password",
-                        "userRoles" : "authzRoles"
+                        "userRoles" : "roles"
                     },
                     "defaultUserRoles" : [ ]
                 },
                 "enabled" : true
             },
             {
-                "name" : "PASSTHROUGH",
+                "name" : "CLIENT_CERT",
                 "properties" : {
-                    "augmentSecurityContext" : {
-                        "type" : "text/javascript",
-                        "file" : "auth/populateAsManagedUser.js"
-                    },
-                    "queryOnResource" : "system/ldap/account",
-                    "propertyMapping" : {
-                        "authenticationId" : "uid"
-                    },
-                    "managedUserLink" : "systemLdapAccounts_managedUser",
+                    "queryOnResource" : "managed/user",
                     "defaultUserRoles" : [
-                        "internal/role/openidm-authorized"
-                    ]
+                        "openidm-cert"
+                    ],
+                    "allowedAuthenticationIdPatterns" : [ ]
                 },
-                "enabled" : true
+                "enabled" : false
             },
             {
                 "name" : "SOCIAL_PROVIDERS",
                 "properties" : {
                     "defaultUserRoles" : [
-                        "internal/role/openidm-authorized"
+                        "openidm-authorized"
                     ],
                     "augmentSecurityContext" : {
                         "type" : "text/javascript",
@@ -102,7 +85,7 @@
                         "userRoles" : "authzRoles"
                     }
                 },
-                "enabled" : true
+                "enabled" : false
             },
             {
                 "name" : "STATIC_USER",
@@ -111,10 +94,49 @@
                     "username" : "&{openidm.prometheus.username}",
                     "password" : "&{openidm.prometheus.password}",
                     "defaultUserRoles" : [
-                        "internal/role/openidm-prometheus"
+                        "&{openidm.prometheus.role}"
                     ]
                 },
                 "enabled" : true
+            },
+            {
+                "name" : "OAUTH_CLIENT",
+                "properties" : {
+                    "augmentSecurityContext" : {
+                        "type" : "text/javascript",
+                        "globals" : {
+                            "sessionValidationBaseEndpoint" : "https://login.frudevops-charan.example.com/json/subscribers/sessions/"
+                        },
+                        "file" : "auth/amSessionCheck.js"
+                    },
+                    "propertyMapping" : {
+                        "authenticationId" : "uid",
+                        "userRoles" : "authzRoles"
+                    },
+                    "defaultUserRoles" : [
+                        "openidm-authorized"
+                    ],
+                    "idpConfig" : {
+                        "provider" : "OPENAM",
+                        "icon" : "<button class=\"btn btn-lg btn-default btn-block btn-social-provider\"><img src=\"images/forgerock_logo.png\">Sign In</button>",
+                        "scope" : [
+                            "openid"
+                        ],
+                        "authenticationIdKey" : "sub",
+                        "clientId" : "openidm",
+                        "clientSecret" : "openidm",
+                        "authorizationEndpoint" : "https://login.frudevops-charan.example.com/oauth2/realms/root/realms/subscribers/authorize",
+                        "tokenEndpoint" : "https://login.frudevops-charan.example.com/oauth2/realms/root/realms/subscribers/access_token",
+                        "endSessionEndpoint" : "https://login.frudevops-charan.example.com/oauth2/realms/root/realms/subscribers/connect/endSession",
+                        "wellKnownEndpoint" : "https://login.frudevops-charan.example.com/oauth2/subscribers/.well-known/openid-configuration",
+                        "redirectUri" : "https://openidm.frudevops-charan.example.com/",
+                        "configClass" : "org.forgerock.oauth.clients.oidc.OpenIDConnectClientConfiguration",
+                        "displayIcon" : "forgerock",
+                        "enabled" : true
+                    },
+                    "queryOnResource" : "system/subscribersLDAP/account"
+                },
+                "enabled" : false
             }
         ]
     }
