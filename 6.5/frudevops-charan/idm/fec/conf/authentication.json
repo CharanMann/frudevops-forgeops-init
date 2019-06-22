@@ -6,7 +6,7 @@
                 "sessionOnly" : true,
                 "isHttpOnly" : true,
                 "enableDynamicRoles" : false,
-                "maxTokenLifeMinutes" : "1200",
+                "maxTokenLifeMinutes" : "12000",
                 "tokenIdleTimeMinutes" : "300"
             }
         },
